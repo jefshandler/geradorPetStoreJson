@@ -7,8 +7,8 @@ from generate_names import generate_random_name
 
 
 def gerar_lista_nomes_pets():
-    nome_pet = generate_random_name(3)
-    return nome_pet
+    name_pet = generate_random_name(3)
+    return name_pet
 
 
 def gerar_json_aleatorio():
@@ -54,20 +54,33 @@ def gerar_json_aleatorio():
     return json_data
 
 
-pasta = 'jsons'
-if not os.path.exists(pasta):
-    os.makedirs(pasta)
+def main():
+    pasta = 'jsons'
+    if not os.path.exists(pasta):
+        os.makedirs(pasta)
 
-quantidade_jsons = 10
-jsons_aleatorios = []
+    while True:
+        try:
+            quantidade_jsons = int(input("Digite a quantidade de JSONs a serem gerados na matriz (número positivo): "))
+            if quantidade_jsons > 0:
+                break
+            else:
+                print("Por favor, digite um número positivo.")
+        except ValueError:
+            print("Por favor, digite um número válido.")
 
-for i in range(quantidade_jsons):
-    json_aleatorio = gerar_json_aleatorio()
-    jsons_aleatorios.append(json_aleatorio)
+    jsons_aleatorios = []
 
-# Salvar a lista de JSONs no arquivo
-nome_arquivo = f'{pasta}/jsons.json'
-with open(nome_arquivo, 'w') as arquivo:
-    json.dump(jsons_aleatorios, arquivo, indent=4)
+    for i in range(quantidade_jsons):
+        json_aleatorio = gerar_json_aleatorio()
+        jsons_aleatorios.append(json_aleatorio)
 
-print(f'{quantidade_jsons} JSONs adicionados ao arquivo "{nome_arquivo}"')
+    # Salvar a lista de JSONs no arquivo
+    nome_arquivo = f'{pasta}/jsons_matriz.json'
+    with open(nome_arquivo, 'w') as arquivo:
+        json.dump(jsons_aleatorios, arquivo, indent=4)
+
+    print(f'{quantidade_jsons} JSONs adicionados ao arquivo "{nome_arquivo}"')
+
+if __name__ == "__main__":
+    main()

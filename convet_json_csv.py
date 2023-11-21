@@ -2,12 +2,12 @@ import os
 import json
 import csv
 
-project_dir = os.path.dirname(os.path.abspath(__file__))
+generate_dir = os.path.dirname(os.path.abspath(__file__))
 
-json_dir = os.path.join(project_dir, 'jsons')
-csv_dir = os.path.join(project_dir, 'csvs')
+json_dir = os.path.join(generate_dir, 'jsons')
+csv_dir = os.path.join(generate_dir, 'csvs')
 
-json_file_path = os.path.join(json_dir, 'jsons.json')
+json_file_path = os.path.join(json_dir, 'jsons_matriz.json')
 
 csv_file_path = os.path.join(csv_dir, 'pets.csv')
 
