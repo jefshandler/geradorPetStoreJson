@@ -9,7 +9,6 @@ def gerar_lista_nomes_pets():
     name_pet = generate_random_name(3)
     return name_pet
 
-
 def gerar_json_aleatorio():
     status_opcoes = ['available', 'pending', 'sold']
 
@@ -32,6 +31,7 @@ def gerar_json_aleatorio():
     name = gerar_lista_nomes_pets()
     photo_urls = ['https://example.com/photo1.jpg', 'https://example.com/photo2.jpg']
 
+    # Define a quantidade de digitos para o Id do pet
     id_min_length = 5
     min_id = 10 ** (id_min_length - 1)
     max_id = (10 ** id_min_length) - 1

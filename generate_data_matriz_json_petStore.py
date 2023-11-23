@@ -41,9 +41,12 @@ def gerar_json_aleatorio():
 
     name = gerar_lista_nomes_pets()
     photo_urls = ['https://example.com/photo1.jpg', 'https://example.com/photo2.jpg']
-
+    # Define a quantidade de digitos para o Id do pet
+    id_min_length = 5
+    min_id = 10 ** (id_min_length - 1)
+    max_id = (10 ** id_min_length) - 1
     json_data = {
-        'id': random.randint(1, 100),
+        'id': random.randint(min_id, max_id),
         'category': category,
         'name': name,
         'photoUrls': photo_urls,
@@ -81,6 +84,7 @@ def main():
         json.dump(jsons_aleatorios, arquivo, indent=4)
 
     print(f'{quantidade_jsons} JSONs adicionados ao arquivo "{nome_arquivo}"')
+
 
 if __name__ == "__main__":
     main()
